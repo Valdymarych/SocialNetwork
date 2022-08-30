@@ -35,7 +35,8 @@ const blogReducer = (state=initBlog,action) => {
             let newPost = {...stateCopy.newPost,uploaded:false, onUpload:
                 function (){
                     return this;
-                }
+                },
+                _id:((new Date).getTime())
             }
             newPost.onUpload=newPost.onUpload.bind(newPost);
             stateCopy={

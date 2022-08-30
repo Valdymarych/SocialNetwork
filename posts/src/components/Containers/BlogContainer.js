@@ -26,21 +26,13 @@ class BlogContainerClass extends Component{
 
 
 const mapStateToProps = (state)=>({
-  posts: state.blog.posts,
-  newPost: state.blog.newPost,
-  name: state.regLog.logined.name,
-  avatar: state.regLog.logined.avatar,
-  isFetching: state.blog.isFetching,
-  noUploadedCount: state.blog.noUploadedCount
+
 })
 
 
 const mapDispatchToProps = {
-  setNewPostText,
-  addPost,
   setPosts,
-  toogleIsFetching,
-  postUploaded
+  toogleIsFetching
 }
 
 
