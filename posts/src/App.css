@@ -1,0 +1,150 @@
+.App {
+  display: grid;
+  grid-template-areas: 
+  "h h"
+  "n c";
+
+  grid-template-rows: max-content;
+  grid-template-columns: 15vw 85vw;
+
+  overflow: hidden;
+}
+
+.Blog {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 100px;
+    padding-top: 10px;
+}
+
+.Post {
+    display: block;
+    margin-bottom: 3px;
+    width: 90%;
+    padding: 15px;
+    background-color: #bbbbbb;
+    border-radius: 15px;
+}
+
+.Post p{
+    font-size: 50px;
+    margin: 0px;
+    padding: 0px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    display: block;
+}
+
+.Input {
+    margin-left: 100px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Input textarea {
+    width: 60%;
+}
+
+.Navbar {
+    grid-area: n;
+    background-color: aquamarine;
+    padding-left: 20%;
+    padding-top: 20%;
+    font-size: 50px;
+    padding-bottom: 100px;
+}
+
+.Header {
+    grid-area: h;
+}
+
+.Content {
+    grid-area: c;
+    width: 1fr;
+}
+
+.Navbar .active{
+    color: olivedrab;
+}
+.avatar-container {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+    border-radius: 20px;
+    margin-left: 300px;
+}
+.avatar-image {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+}
+.preloader-center-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preloader-gif{
+    width: inherit;
+    height: inherit;
+}
+.users-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+.User {
+    display: flex;
+    margin-bottom: 3px;
+    width: 90%;
+    padding: 15px;
+    background-color: #bbbbbb;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+}
+.User p{
+    font-size: 50px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 40px;
+}
+.User img{
+    width: 100px;
+    height: 100px;
+}
+.pages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 30vw;
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.pages div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 15px;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+}
+.pages div.active {
+    border-color: red;
+    border-width: 4px;
+}
+.pages div button{
+    background: none;
+    border: none;
+    font-weight: bold;
+}
