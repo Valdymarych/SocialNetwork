@@ -30,7 +30,7 @@ class PostContainerClass extends React.Component{
 function BlogPosts(props){
   const posts=props.posts.map((post)=>
     (
-      <PostContainerClass key={post._id} postUploaded={props.postUploaded} post={post} />
+      <PostContainerClass key={post.uploaded? post.id: post.tempId} postUploaded={props.postUploaded} post={post} />
     )
   );
   return (

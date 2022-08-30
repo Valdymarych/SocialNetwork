@@ -1,8 +1,5 @@
 import express from "express"
 import userService from "./userService";
-import User from './Schemas/userSchema'
-import bcrypt from "bcrypt";
-import { read } from "fs";
 function setCookieAndLoginRes(user:any,res:express.Response){
     const logined={
         name: user.name,

@@ -9,9 +9,9 @@ function Navbar(props){
             <div>
                 <NavLink to="/users" className={({isActive})=>isActive? "active":undefined}>Users</NavLink>
             </div>            
-            <div>
+            {/* <div>
                 <NavLink to="/chats" className={({isActive})=>isActive? "active":undefined}>Chats</NavLink>
-            </div>
+            </div> */}
         </nav>
     )
 }

@@ -1,11 +1,9 @@
 .App {
   display: grid;
   grid-template-areas: 
-  "h h"
   "n c";
 
   grid-template-rows: max-content;
-  grid-template-columns: 15vw 85vw;
 
   overflow: hidden;
 }
