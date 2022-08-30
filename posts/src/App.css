@@ -3,7 +3,7 @@
   grid-template-areas: 
   "n c";
 
-  grid-template-rows: max-content;
+  grid-template-columns: 15vw 85vw;
 
   overflow: hidden;
 }
@@ -52,10 +52,6 @@
     padding-top: 20%;
     font-size: 50px;
     padding-bottom: 100px;
-}
-
-.Header {
-    grid-area: h;
 }
 
 .Content {
