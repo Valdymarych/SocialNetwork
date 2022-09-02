@@ -1,6 +1,7 @@
 const SET_NEWPOSTTEXT = "BLOG_SET-NEWPOSTTEXT";
 const ADD_POST = "BLOG_ADD-POST";
 const SET_POSTS = "BLOG_SET_POSTS";
+const TOOGLE_FOREIGN = "BLOG_TOOGLE_FOREIGN"
 const TOOGLE_IS_FETCHING= "BLOG_TOOGLE_IS_FETCHIN"
 const POST_UPLOADED="BLOG_POST_UPLOADED"
 const initBlog={
@@ -12,6 +13,7 @@ const initBlog={
     },
     isFetching: true,
     noUploadedCount: 0,
+    foreign: false,
 }
 
 const blogReducer = (state=initBlog,action) => {
@@ -80,6 +82,13 @@ const blogReducer = (state=initBlog,action) => {
             }
             break;
         }
+        case TOOGLE_FOREIGN: {
+            stateCopy={
+                ...state,
+                foreign: action.foreign,
+            }
+            break;
+        }
         default: {
             break;
         }
@@ -107,6 +116,10 @@ export const postUploaded = (onUpload,postCreated) => ({
     type: POST_UPLOADED,
     onUpload: onUpload,
     postCreated: postCreated,
+});
+export const toogleForeign = (foreign) => ({
+    type: TOOGLE_FOREIGN,
+    foreign: foreign
 });
 
 

@@ -26,7 +26,7 @@ class BlogContainerClass extends Component{
 
 
 const mapStateToProps = (state)=>({
-
+  foreign: state.blog.foreign
 })
 
 

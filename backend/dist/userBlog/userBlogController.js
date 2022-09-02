@@ -41,5 +41,18 @@ class UserBlogController {
             }
         });
     }
+    visit(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (typeof req.query.id === "string") {
+                    const userData = yield userBlogService_1.default.visit(req.query.id);
+                    res.status(HTTP.OK_200).json(userData);
+                }
+            }
+            catch (e) {
+                console.log(e);
+            }
+        });
+    }
 }
 exports.default = new UserBlogController();

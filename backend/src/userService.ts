@@ -13,7 +13,7 @@ class userService{
         return result
     }
     
-    async getOne(id:String) {
+    async getOne(id:string) {
         const userFound = await User.findById(id);
         return userFound;
     }

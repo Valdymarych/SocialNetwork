@@ -22,6 +22,18 @@ class UserBlogService{
       return {done:false}
     }
   }
+
+  async visit(userId:string) {
+    const blog=(await UserBlog.findOne({user:userId}));
+    await (await blog?.populate("posts"))?.populate("user");
+    console.log(blog);
+    
+    const result = {
+      posts: blog?.posts,
+      user: blog?.user
+    }
+    return result;
+  }
 }
 
 export default new UserBlogService();

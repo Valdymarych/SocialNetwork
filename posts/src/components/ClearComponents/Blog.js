@@ -8,7 +8,7 @@ function Blog(props){
   return (
     <>
       <BlogHeaderContainer/>
-      <BlogInputContainer/>
+      {props.foreign? <></>:<BlogInputContainer/>}
       <BlogPostsContainer/>
     </>
   )

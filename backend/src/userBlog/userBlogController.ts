@@ -1,6 +1,6 @@
 import express, { query } from "express"
 import UserBlogService from "./userBlogService";
-
+import UserService from "../userService";
 const HTTP={
   OK_200:200,
   CREATED_201:201,
@@ -23,6 +23,17 @@ class UserBlogController{
       const dataCreated=await UserBlogService.create(req.cookies.userId,req.body)
       res.status(HTTP.OK_200).json(dataCreated);
     } catch (e){
+      console.log(e);
+    }
+  }
+
+  async visit(req:express.Request,res:express.Response) {
+    try {
+      if (typeof req.query.id==="string"){
+        const userData=await UserBlogService.visit(req.query.id);
+        res.status(HTTP.OK_200).json(userData);
+      }
+    } catch (e) {
       console.log(e);
     }
   }

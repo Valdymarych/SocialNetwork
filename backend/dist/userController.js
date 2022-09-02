@@ -31,9 +31,27 @@ const HTTP = {
     REDIRECT_300: 302,
     BAD_REQUEST_400: 400
 };
+function getOne(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            if (typeof req.query.id === "string") {
+                const userFound = yield userService_1.default.getOne(req.query.id);
+                res.status(HTTP.OK_200).json(userFound);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    });
+}
 class userController {
     getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log("куку " + req.query.id);
+            if (req.query.id) {
+                yield getOne(req, res);
+                return;
+            }
             try {
                 const pageIndex = Number(req.query.pageIndex);
                 const pageSize = Number(req.query.pageSize);
@@ -47,14 +65,7 @@ class userController {
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            try {
-                console.log(req.query);
-                const userFound = yield userService_1.default.getOne("1");
-                res.status(HTTP.OK_200).json(userFound);
-            }
-            catch (e) {
-                console.log(e);
-            }
+            yield getOne(req, res);
         });
     }
     delete(req, res) {

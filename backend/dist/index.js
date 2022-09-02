@@ -42,6 +42,7 @@ app.post('/api/user/reg', userController_1.default.registration);
 app.post('/api/user/login', userController_1.default.login);
 app.get('/api/user/logout', userController_1.default.logout);
 app.get('/api/user/check', userController_1.default.checkAuth);
+app.get('/api/userBlog/visit', userBlogController_1.default.visit);
 function cookieChecker(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         if (req.cookies.auth) {

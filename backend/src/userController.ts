@@ -21,27 +21,39 @@ const HTTP={
     BAD_REQUEST_400:400
 }
 
+
+async function getOne(req:express.Request,res:express.Response){
+    try{
+        if (typeof req.query.id==="string"){
+            const userFound=await userService.getOne(req.query.id);
+            res.status(HTTP.OK_200).json(userFound);
+        }
+    } catch (e){
+        console.log(e);
+    } 
+}
+
 class userController{
     async getAll(req:express.Request,res:express.Response){
+        console.log("куку "+req.query.id);
+        
+        if (req.query.id){
+            await getOne(req,res);
+            return;
+        }
         try{
             const pageIndex:number=Number(req.query.pageIndex);
             const pageSize:number=Number(req.query.pageSize);
             const usersFound=await userService.getAll(pageSize, pageIndex);
-
+            
             res.status(HTTP.OK_200).json(usersFound);
         } catch (e){
             console.log(e);
         }
     }
 
-    async getOne(req:express.Request,res:express.Response){
-        try{
-            console.log(req.query);
-            const userFound=await userService.getOne("1");
-            res.status(HTTP.OK_200).json(userFound);
-        } catch (e){
-            console.log(e);
-        } 
+    async getOne(req:express.Request,res:express.Response) {
+        await getOne(req,res);
     }
 
     async delete(req:express.Request,res:express.Response){

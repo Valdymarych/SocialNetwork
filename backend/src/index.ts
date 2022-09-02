@@ -38,6 +38,8 @@ app.post('/api/user/login',userController.login)
 app.get('/api/user/logout',userController.logout)
 app.get('/api/user/check',userController.checkAuth)
 
+app.get('/api/userBlog/visit',userBlogController.visit)
+
 async function cookieChecker(req:express.Request,res:express.Response,next:Function){
   if (req.cookies.auth){
     const currentUser=(await User.find({"name":req.cookies.name}))[0];
