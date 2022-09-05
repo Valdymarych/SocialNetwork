@@ -1,23 +1,20 @@
 import PreLoader from "../PreLoader"
 import avatar from '../../static/undefinedAvatar.jpg'
-function Avatar(props){
+import { NavLink } from "react-router-dom";
+export function Avatar(props){
   const url = props.photo==="urltophoto"? avatar : props.photo
-  const style={
-    clipPath: "circle(50% at 50% 50%)",
-    backgroundSize: "cover"
-  }
   return (
-    <img src={url} style={style}/>
+    <img src={url} className={props.className}/>
   );
 }
 
 function Users(props){
   const users=props.users.map((user)=>
     (
-      <div className="User" key={user._id}>
-        <Avatar photo={user.photos} />
+      <NavLink to={`/blog/${user._id}`} className="User" key={user._id}>
+        <Avatar photo={user.photos} className="Avatar_mini" />
         <p>{user.name}</p>
-      </div>
+      </NavLink>
     )
   );
   const pages=(new Array(Math.ceil(props.total/props.pageSize))).fill().map((_,index)=>

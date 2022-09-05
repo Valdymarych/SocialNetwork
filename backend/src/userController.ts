@@ -35,16 +35,10 @@ async function getOne(req:express.Request,res:express.Response){
 
 class userController{
     async getAll(req:express.Request,res:express.Response){
-        console.log("куку "+req.query.id);
-        
-        if (req.query.id){
-            await getOne(req,res);
-            return;
-        }
         try{
             const pageIndex:number=Number(req.query.pageIndex);
             const pageSize:number=Number(req.query.pageSize);
-            const usersFound=await userService.getAll(pageSize, pageIndex);
+            const usersFound=await userService.getAll(pageSize, pageIndex,req.cookies.userId);
             
             res.status(HTTP.OK_200).json(usersFound);
         } catch (e){
@@ -74,7 +68,6 @@ class userController{
 
     async update(req:express.Request,res:express.Response){
         try{
-            console.log(req.query);
             const userUpdated=await userService.update(req.body,"1");
             res.status(HTTP.OK_200).json(userUpdated);
         } catch (e){

@@ -3,9 +3,9 @@ import bcrypt from "bcrypt";
 import UserBlog from "./userBlog/userBlogSchema";
 
 class userService{
-    async getAll(pageSize:number,pageIndex:number) {
-        const usersFound = await User.find().skip(pageSize*pageIndex).limit(pageSize);
-        const totalCount = await User.find().count();
+    async getAll(pageSize:number,pageIndex:number,userId:string) {
+        const usersFound = await User.find({_id:{$ne:userId}}).skip(pageSize*pageIndex).limit(pageSize);
+        const totalCount = await User.find({_id:{$ne:userId}}).count();
         const result = {
             users: usersFound,
             totalCount: totalCount

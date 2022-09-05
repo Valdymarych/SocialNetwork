@@ -47,15 +47,10 @@ function getOne(req, res) {
 class userController {
     getAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("куку " + req.query.id);
-            if (req.query.id) {
-                yield getOne(req, res);
-                return;
-            }
             try {
                 const pageIndex = Number(req.query.pageIndex);
                 const pageSize = Number(req.query.pageSize);
-                const usersFound = yield userService_1.default.getAll(pageSize, pageIndex);
+                const usersFound = yield userService_1.default.getAll(pageSize, pageIndex, req.cookies.userId);
                 res.status(HTTP.OK_200).json(usersFound);
             }
             catch (e) {
@@ -90,7 +85,6 @@ class userController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log(req.query);
                 const userUpdated = yield userService_1.default.update(req.body, "1");
                 res.status(HTTP.OK_200).json(userUpdated);
             }

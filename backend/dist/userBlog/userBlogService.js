@@ -46,7 +46,6 @@ class UserBlogService {
         return __awaiter(this, void 0, void 0, function* () {
             const blog = (yield userBlogSchema_1.default.findOne({ user: userId }));
             yield ((_a = (yield (blog === null || blog === void 0 ? void 0 : blog.populate("posts")))) === null || _a === void 0 ? void 0 : _a.populate("user"));
-            console.log(blog);
             const result = {
                 posts: blog === null || blog === void 0 ? void 0 : blog.posts,
                 user: blog === null || blog === void 0 ? void 0 : blog.user

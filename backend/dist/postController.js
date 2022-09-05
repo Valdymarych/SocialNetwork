@@ -33,7 +33,6 @@ class PostController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log(req.query);
                 const postFounded = yield postService_1.default.getOne("1");
                 res.status(HTTP.OK_200).json(postFounded);
             }
@@ -64,7 +63,6 @@ class PostController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log(req.query);
                 const postUpdated = yield postService_1.default.update(req.body, "1");
                 res.status(HTTP.OK_200).json(postUpdated);
             }

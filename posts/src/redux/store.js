@@ -19,9 +19,6 @@ let store = {
     subscribe(observer){
         this._callSubscriber = observer;
     },
-    _callSubscriber(){
-        console.log("rerendered");
-    },
     getState(){
         return this._state;
     },

@@ -107,9 +107,11 @@
     padding: 0px;
     margin-left: 40px;
 }
-.User img{
+.Avatar_mini {
     width: 100px;
+    background-size: cover;
     height: 100px;
+    clip-path: circle(50% at 50% 50%);
 }
 .pages {
     display: flex;

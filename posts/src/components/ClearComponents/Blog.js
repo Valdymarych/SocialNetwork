@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import BlogHeaderContainer from '../Containers/Blog/BlogHeaderContainer';
 
 import BlogInputContainer from '../Containers/Blog/BlogInputContainer';
@@ -8,7 +9,7 @@ function Blog(props){
   return (
     <>
       <BlogHeaderContainer/>
-      {props.foreign? <></>:<BlogInputContainer/>}
+      {props.isForeign? <></>:<BlogInputContainer/>}
       <BlogPostsContainer/>
     </>
   )

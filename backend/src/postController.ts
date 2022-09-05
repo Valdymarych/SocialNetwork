@@ -20,7 +20,6 @@ class PostController{
 
     async getOne(req:express.Request,res:express.Response){
         try{
-            console.log(req.query);
             const postFounded=await postService.getOne("1");
             res.status(HTTP.OK_200).json(postFounded);
         } catch (e){
@@ -46,7 +45,6 @@ class PostController{
 
     async update(req:express.Request,res:express.Response){
         try{
-            console.log(req.query);
             const postUpdated=await postService.update(req.body,"1");
             res.status(HTTP.OK_200).json(postUpdated);
         } catch (e){

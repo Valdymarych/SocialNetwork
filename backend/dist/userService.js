@@ -16,10 +16,10 @@ const userSchema_1 = __importDefault(require("./Schemas/userSchema"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const userBlogSchema_1 = __importDefault(require("./userBlog/userBlogSchema"));
 class userService {
-    getAll(pageSize, pageIndex) {
+    getAll(pageSize, pageIndex, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usersFound = yield userSchema_1.default.find().skip(pageSize * pageIndex).limit(pageSize);
-            const totalCount = yield userSchema_1.default.find().count();
+            const usersFound = yield userSchema_1.default.find({ _id: { $ne: userId } }).skip(pageSize * pageIndex).limit(pageSize);
+            const totalCount = yield userSchema_1.default.find({ _id: { $ne: userId } }).count();
             const result = {
                 users: usersFound,
                 totalCount: totalCount

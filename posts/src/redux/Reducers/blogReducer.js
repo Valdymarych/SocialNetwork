@@ -1,9 +1,10 @@
 const SET_NEWPOSTTEXT = "BLOG_SET-NEWPOSTTEXT";
 const ADD_POST = "BLOG_ADD-POST";
 const SET_POSTS = "BLOG_SET_POSTS";
-const TOOGLE_FOREIGN = "BLOG_TOOGLE_FOREIGN"
+const TOOGLE_IS_FOREIGN = "BLOG_TOOGLE_FOREIGN"
 const TOOGLE_IS_FETCHING= "BLOG_TOOGLE_IS_FETCHIN"
 const POST_UPLOADED="BLOG_POST_UPLOADED"
+const SET_FOREIGNED="BLOG_SET_FOREIGNED"
 const initBlog={
     posts: [],
     newPost: {
@@ -11,9 +12,13 @@ const initBlog={
             text: '',
         },
     },
+    foreigned: {
+        name: '',
+        avatar: '',
+    },
     isFetching: true,
     noUploadedCount: 0,
-    foreign: false,
+    isForeign: false,
 }
 
 const blogReducer = (state=initBlog,action) => {
@@ -82,12 +87,21 @@ const blogReducer = (state=initBlog,action) => {
             }
             break;
         }
-        case TOOGLE_FOREIGN: {
+        case TOOGLE_IS_FOREIGN: {
             stateCopy={
                 ...state,
-                foreign: action.foreign,
+                isForeign: action.isForeign,
             }
             break;
+        }
+        case SET_FOREIGNED: {
+            stateCopy={
+                ...state,
+                foreigned: {
+                    name: action.name,
+                    avatar: action.avatar
+                }
+            }
         }
         default: {
             break;
@@ -117,10 +131,14 @@ export const postUploaded = (onUpload,postCreated) => ({
     onUpload: onUpload,
     postCreated: postCreated,
 });
-export const toogleForeign = (foreign) => ({
-    type: TOOGLE_FOREIGN,
-    foreign: foreign
+export const toogleIsForeign = (isForeign) => ({
+    type: TOOGLE_IS_FOREIGN,
+    isForeign: isForeign
 });
-
+export const setForeigned = (name,avatar) => ({
+    type: SET_FOREIGNED,
+    name: name,
+    avatar: avatar
+});
 
 export default blogReducer;

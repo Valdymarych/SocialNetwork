@@ -8,6 +8,7 @@ function Content(){
         <div className="Content">
             <Routes>
                 <Route path="blog" element={<BlogContainer/>}/>
+                <Route path="blog/:id" element={<BlogContainer/>}/>
                 <Route path="users" element={<UsersContainer/>}/>
                 <Route path="regist" element={<FormRegistrationContainer/>}/>
                 <Route path="login" element={<FormLoginContainer/>}/>

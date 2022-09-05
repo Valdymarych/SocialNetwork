@@ -28,8 +28,11 @@ class BlogHeaderContainerClass extends React.Component{
 
 const mapStateToProps = (state)=>({
   name: state.regLog.logined.name,
+  avatar: state.regLog.logined.avatar,
   isFetching: state.regLog.isFetching,
-  foreign: state.blog.foreign,
+  isForeign: state.blog.isForeign,
+  foreignName: state.blog.foreigned.name,
+  foreignAvatar: state.blog.foreigned.avatar,
 })
 
 const mapDispatchToProps = {
